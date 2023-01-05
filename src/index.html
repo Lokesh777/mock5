@@ -27,5 +27,125 @@
         <a href="adPage.html">AdPage</a>
         <a href="wishlist.html">Wishlist</a>
     </div>
+    <h1>Car Page</h1>
+    <!-- filter -->
+    <select id="brand" onchange="filterByBrand()">
+      <option value="">Filter By brand</option>
+      <option value="tata">Tata</option>
+      <option value="mahindra">mahindra</option>
+      <option value="hundayi">Hundayi</option>
+      <option value="maruti">Maruti</option>
+      <option value="tesla">tesla</option>
+    </select>
+    <select id="cost" onchange="sortBycost()">
+      <option value="">Sort By Cost</option>
+      <option value="LTH">Low To High</option>
+      <option value="HTL">High To Low</option>
+    </select>
+    <select id="driven" onchange="sortByDriven()">
+      <option value="">Sort By Driven</option>
+      <option value="100">100</option>
+      <option value="1000">1000</option>
+      <option value="10000">10000</option>
+      <option value="100000">100000</option>
+      <option value="1000000">1000000</option>
+    </select>
+
+    <div id="container">
+      <!-- Books append here -->
+    </div>
 </body>
 </html>
+<script>
+    
+fetch("https://mock-test-kj4x.onrender.com")
+.then((res)=>res.json())
+.then((res)=>display(res.cars))
+
+// filter by brand
+const filterByBrand = () => {
+  let filter_brand = document.querySelector("#brand").value;
+  fetch("https://mock-test-kj4x.onrender.com")
+    .then((res) => res.json())
+    .then((res) => {
+      let abc = res.filter(function (ele) {
+        return ele.brand === filter_brand;
+      });
+      display(abc);
+    });
+};
+
+//sort by cost
+const sortBycost = () => {
+  let filter_cost = document.querySelector("#cost").value;
+  fetch("https://mock-test-kj4x.onrender.com")
+    .then((res) => res.json())
+    .then((res) => {
+      let abc = res.sort((a, b) => {
+        let x = a.cost;
+        let y = b.cost;
+        if (filter_cost === "LTH") {
+          if (x > y) {
+            return -1;
+          }
+        }
+      });
+
+      display(abc);
+      console.log(abc);
+    });
+};
+
+function display(data){
+    console.log('data:', data)
+    let container=document.getElementById("container")
+
+    container.innerHTML=null
+
+    data.forEach((ele,i)=>{
+      let div= document.createElement("div")
+      div.setAttribute("class","eachDiv")
+
+
+  
+  let manual=document.createElement("p")
+  manual.textContent=`manual:${ele.manual}`
+  manual.style.fontWeight="bold"
+
+  let brand=document.createElement("p")
+  brand.textContent=`brand:${ele.brand}`
+  brand.style.fontWeight="bold"
+  
+  let edition=document.createElement("p")
+  edition.textContent=`Edition:${ele.edition}`
+  
+  let driven=document.createElement("p")
+  driven.textContent=`driven:${ele.driven}`
+  
+  let price=document.createElement("p")
+  price.textContent=`price:${ele.price}`
+  
+  
+  let description=document.createElement("p")
+  description.textContent=`description:${ele.description}`
+  description.style.fontWeight="bold"
+
+
+  let addtoButton=document.createElement("button")
+  addtoButton.textContent="add to wishlist"
+  addtoButton.style.background="green"
+  addtoButton.style.padding="10px"
+  addtoButton.style.color="white"
+  addtoButton.style.cursor="pointer"
+  addtoButton.addEventListener("click",function(){
+    clickedDiv(ele)
+  })
+   
+
+  div.append(brand,manual,edition,driven,price,description,addtoButton)
+
+  container.append(div)
+
+    })
+  }
+</script>

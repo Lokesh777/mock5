@@ -23,7 +23,7 @@ function adPageForm(e){
 
 
 async function postData(data){
-    let res=await fetch("https://json-api-nz05.onrender.com/books",{
+    let res=await fetch("http://localhost:3001/cars",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(data)
@@ -36,7 +36,7 @@ async function postData(data){
 
 async function getData(){
 
-    let data=await fetch("https://json-api-nz05.onrender.com/books")
+    let data=await fetch("http://localhost:3001/cars")
     let res= await data.json()
     displayData(res)
 }
