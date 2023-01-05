@@ -1,0 +1,23 @@
+{
+  "name": "mock5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lokesh777/mock5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lokesh777/mock5/issues"
+  },
+  "homepage": "https://github.com/Lokesh777/mock5#readme",
+  "dependencies": {
+    "json-server": "^0.17.1"
+  }
+}
