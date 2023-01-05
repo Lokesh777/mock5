@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Page</title>
+    <style>
+   .navbar{
+    padding: 2rem;
+  background-color: blueviolet;
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-evenly;
+   }
+   a{
+    text-decoration: none;
+    color: aliceblue;
+   }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="adPage.html">AdPage</a>
+        <a href="wishlist.html">Wishlist</a>
+    </div>
+
+    <h1>AdPage</h1>
+
+    <div id="formDiv">
+        <form id="form">
+         
+         <select name="brand" id="brand">
+            <option value="">Select Brand</option>
+            <option value="tata">Tata</option>
+            <option value="mahindra">Mahindra</option>
+            <option value="hundayi">hundayi</option>
+            <option value="maruti">maruti</option>
+            <option value="tesla">tesla</option>
+          </select>
+
+          <br />
+          <select name="manual" id="manual">
+            <option value="">Select automotive</option>
+            <option value="manual">Manual</option>
+            <option value="amt">Automated</option>
+          </select>
+          <br />
+
+          <select name="edition" id="edition">
+            <option value="">Select Edition</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+          </select>
+          <br />
+
+          <label class="labelform">
+            <input
+              type="number"
+              id="driven"
+              placeholder=" Enter the driven in KM"
+            />
+          </label>
+          <br />
+          <label class="labelform">
+            <input type="text" id="description" placeholder="car description" />
+          </label>
+          <br/>
+          <label class="labelform">
+            <input
+              type="number"
+              id="price"
+              placeholder="car price"
+            />
+          </label>
+          
+          <br />
+  
+          <input id="submit" type="submit" />
+        </form>
+      </div>
+
+</body>
+</html>
+<script src="adPage.js"></script>
